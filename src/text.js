@@ -13,7 +13,7 @@ const scene = new THREE.Scene();
 // Loaders
 const fontsLoader = new FontLoader()
 const textureLoader = new THREE.TextureLoader()
-const matCapTexture = textureLoader.load('/textures/matcaps/1.png')
+const matCapTexture = textureLoader.load('/textures/matcaps/4.png')
 
 fontsLoader.load(
     '/fonts/helvetiker_regular.typeface.json',
