@@ -38,7 +38,6 @@ const bricksAmbientTexture = textureLoader.load('/textures/bricks/ambientOcclusi
 const bricksNormalTexture = textureLoader.load('/textures/bricks/normal.jpg')
 const bricksRoughnessTexture = textureLoader.load('/textures/bricks/roughness.jpg')
 
-
 const grassColorTexture = textureLoader.load('/textures/grass/color.jpg')
 const grassAmbientTexture = textureLoader.load('/textures/grass/ambientOcclusion.jpg')
 const grassNormalTexture = textureLoader.load('/textures/grass/normal.jpg')
