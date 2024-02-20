@@ -204,7 +204,7 @@ const createBox = (width, height, depth, position) => {
  */
 // Base camera
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
-camera.position.set(-5, 3, 3)
+camera.position.set(-8, 4, 6)
 scene.add(camera)
 
 // Controls
@@ -237,7 +237,6 @@ const debugObj = {
     
             objectsToUpdate.splice(0, objectsToUpdate.length)
         }
-
         floor.rotation.x = - Math.PI * 0.5
         floorBody.quaternion.setFromAxisAngle(
             new CANNON.Vec3(-1, 0, 0), // its like to stick an axis inside the object
@@ -262,7 +261,7 @@ const debugObj = {
 
 gui.add(debugObj, 'createSphere')
 gui.add(debugObj, 'createBox')
-gui.add(debugObj, 'reset')
+// gui.add(debugObj, 'reset')
 gui.add(debugObj, 'liftFloorFromLeft')
 gui.add(debugObj, 'liftFloorFromRight')
 
