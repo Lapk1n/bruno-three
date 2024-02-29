@@ -1,6 +1,6 @@
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
-import CANNON, { Vec3 } from 'cannon'
+import * as CANNON from 'cannon-es'
 import * as lil from 'lil-gui'
 
 
@@ -318,8 +318,8 @@ tick()
     Notes:
 
     1. Best 3D physics libraries:
-        - Ammo.js
-        - Cannon.js
+        - Ammo.js (better but harder)
+        - Cannon.js (worse but easier)
         - Oimo.js
     2. Best 2D physics libraries:
         - Matter.js
@@ -343,4 +343,10 @@ tick()
     5. An interesting thing - even if all the scene became static and objects are not moving, cannon continues to calculate the possible
     collision event if the advanced algorithm of broadphase is enabled. The next step to increase the performance is to enable sleeping mode.
     In this mode, if objects stoped movings the calculation will be also stoped
+
+    6. Performance optimization trick - using workers. This approach allows use to assign the physics world calculation to another core
+    of your CPU while the default one will continue to work with rest JS.
+
+    7. Cannon js hasnt been updated for years, however there are some enthusiastic guys that continue update it in the fork called
+    cannon-es
 */
