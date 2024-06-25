@@ -9,21 +9,51 @@
 </head>
 <body>
     <canvas class="webgl"></canvas>
-    <!-- <script type="module" src="./script.js"></script> -->
-    <!-- <script type="module" src="./basics/gui.js"></script> -->
-    <!-- <script type="module" src="./group.js"></script> -->
-    <!-- <script type="module" src="./animation.js"></script> -->
-    <!-- <script type="module" src="./camera.js"></script> -->
-    <!-- <script type="module" src="./fullscreen-resize.js"></script> -->
-    <!-- <script type="module" src="./textures.js"></script> -->
-    <!-- <script type="module" src="./basics/material.js"></script> -->
-    <!-- <script type="module" src="./text.js"></script> -->
-    <!-- <script type="module" src="./classic-technics/light.js"></script> -->
-    <!-- <script type="module" src="./classic-technics/shadows.js"></script> -->
-    <!-- <script type="module" src="./classic-technics/haunted-house.js"></script> -->
-    <!-- <script type="module" src="./classic-technics/particles.js"></script> -->
-    <!-- <script type="module" src="./classic-technics/galaxy-generator.js"></script> -->
-    <!-- <script type="module" src="./advanced-technics/physics.js"></script> -->
-    <script type="module" src="./advanced-technics/models.js"></script>
+
+    <select id="scriptSelector">
+        <option value="./script.js">Script</option>
+        <option value="./basics/gui.js">GUI</option>
+        <option value="./group.js">Group</option>
+        <option value="./animation.js">Animation</option>
+        <option value="./camera.js">Camera</option>
+        <option value="./fullscreen-resize.js">Fullscreen Resize</option>
+        <option value="./textures.js">Textures</option>
+        <option value="./basics/material.js">Material</option>
+        <option value="./text.js">Text</option>
+        <option value="./classic-technics/light.js">Light</option>
+        <option value="./classic-technics/shadows.js">Shadows</option>
+        <option value="./classic-technics/haunted-house.js">Haunted House</option>
+        <option value="./classic-technics/particles.js">Particles</option>
+        <option value="./classic-technics/galaxy-generator.js">Galaxy Generator</option>
+        <option value="./advanced-technics/physics.js">Physics</option>
+        <option value="./advanced-technics/models.js">Models</option>
+    </select>
+
+    <div id="scriptContainer"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const scriptSelector = document.getElementById('scriptSelector');
+            const scriptContainer = document.getElementById('scriptContainer');
+
+            function loadScript(src) {
+                const existingScript = document.querySelector('#scriptContainer script');
+                if (existingScript) {
+                    existingScript.remove();
+                }
+
+                const script = document.createElement('script');
+                script.type = 'module';
+                script.src = src;
+                scriptContainer.appendChild(script);
+            }
+
+            loadScript(scriptSelector.value);
+
+            scriptSelector.addEventListener('change', () => {
+                loadScript(scriptSelector.value);
+            });
+        });
+    </script>
 </body>
 </html>
